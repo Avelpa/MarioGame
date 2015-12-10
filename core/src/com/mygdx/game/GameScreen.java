@@ -22,14 +22,17 @@ public class GameScreen implements Screen {
 
     public final int V_WIDTH = 800;
     public final int V_HEIGHT = 600;
+    
     private Viewport viewport;
     private OrthographicCamera camera;
     private SpriteBatch batch;
+    
     private Texture logo;
 
     public GameScreen() {
         camera = new OrthographicCamera();
         viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+        
         camera.position.x = V_WIDTH / 2f;
         camera.position.y = V_HEIGHT / 2f;
 
