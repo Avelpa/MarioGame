@@ -36,9 +36,11 @@ public class Player extends Entity {
     }
 
     public void setVelocityX(float x) {
+        velocity.x = x;
     }
 
     public void setVelocityY(float y) {
+        velocity.y = y;
     }
     public void setState(State s){
         state = s;
