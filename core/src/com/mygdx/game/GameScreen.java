@@ -27,8 +27,6 @@ public class GameScreen implements Screen {
     private OrthographicCamera camera;
     private SpriteBatch batch;
     
-    private Texture logo;
-
     public GameScreen() {
         camera = new OrthographicCamera();
         viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
@@ -37,8 +35,6 @@ public class GameScreen implements Screen {
         camera.position.y = V_HEIGHT / 2f;
 
         batch = new SpriteBatch();
-        logo = new Texture("badlogic.jpg");
-
     }
 
     @Override
@@ -52,16 +48,12 @@ public class GameScreen implements Screen {
 
 
         if (Gdx.input.isKeyPressed(Keys.D)) {
-            camera.position.x -= 10f;
         }
         if (Gdx.input.isKeyPressed(Keys.A)) {
-            camera.position.x += 10f;
         }
         if (Gdx.input.isKeyPressed(Keys.S)) {
-            camera.position.y += 10f;
         }
         if (Gdx.input.isKeyPressed(Keys.W)) {
-            camera.position.y -= 10f;
         }
         camera.update();
         //links the renderer to the camera
@@ -70,7 +62,6 @@ public class GameScreen implements Screen {
         //tells the renderer this is the list
         batch.begin();
         //start the list of things to draw
-        batch.draw(logo, V_WIDTH / 2f - logo.getWidth() / 2f, V_HEIGHT / 2f - logo.getHeight() / 2f);
         //finish listing stuff to draw
         batch.end();
     }
