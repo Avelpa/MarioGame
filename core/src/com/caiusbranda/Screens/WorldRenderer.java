@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.caiusbranda.model.Block;
 import com.caiusbranda.model.Player;
 import com.caiusbranda.model.World;
 
@@ -32,6 +33,7 @@ public class WorldRenderer {
     
     public WorldRenderer(World w)
     {
+        AssetManager.load();
         world = w;
         
         player = world.getPlayer();
@@ -42,8 +44,6 @@ public class WorldRenderer {
         camera.position.y = V_HEIGHT / 2f;
         
         batch = new SpriteBatch();
-        
-        AssetManager.load();
     }
 
     public void render(float delta)
@@ -71,7 +71,11 @@ public class WorldRenderer {
         //tells the renderer this is the list
         batch.begin();
         //start the list of things to draw
-        batch.draw(AssetManager.marioStand, player.getX(), player.getY());
+        for (Block b: world.getBlocks())
+        {
+            batch.draw(AssetManager.block, b.getX(), b.getY());
+        }
+        batch.draw(AssetManager.marioStandRight, player.getX(), player.getY());
         //finish listing stuff to draw
         batch.end();
     }

@@ -33,6 +33,7 @@ public class Player extends Entity {
     }
 
     public void update(float delta) {
+        acceleration.y = -9.8f;
     }
 
     public void setVelocityX(float x) {
@@ -45,7 +46,7 @@ public class Player extends Entity {
     public void setState(State s){
         state = s;
     }
-
+    
     //states for mario
     public enum State {
 
